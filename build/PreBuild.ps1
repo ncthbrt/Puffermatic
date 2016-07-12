@@ -10,9 +10,6 @@ function JavaInstalled (){
         }    
 }
 
-
-
-
 $tmp=Get-Location;
 Set-Location "$PSScriptRoot/.."
 $parent=Get-Item './src'

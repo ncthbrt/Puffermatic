@@ -186,5 +186,9 @@ grammar ProtocolBuffers3;
          GroupingOpen StreamKeyword? typeName GroupingClose
          (OptionsOpen fieldOptions OptionsClose)? ExpressionSeparator;
 
-    topLevelDefinition: message | enum | service;
-    proto: syntax ( importStatement | package | option | topLevelDefinition)* EOF;
+    topLevelDefinition: message     # MessageVisitor 
+                      | enum        # EnumVisitor
+                      | service     # ServiceVisitor
+                      ;
+    
+    proto: syntax (importStatement | package | option | topLevelDefinition)* EOF;
