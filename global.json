@@ -1,0 +1,8 @@
+{
+  "projects": ["src", "gen"],
+  "sdk": {
+    "version": "1.0.0-rc2-20222",
+    "runtime": "clr",
+    "architecture": "x86"
+  }
+}

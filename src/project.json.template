@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "debugType": "portable"    
+  },
+  "dependencies": {    
+    "Antlr4.Runtime": "4.5.3-rc1",    
+    "NETStandard.Library": "1.6.0"    
+  },
+  "frameworks": {
+    "net461":{}
+  }
+}
