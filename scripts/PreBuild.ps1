@@ -35,5 +35,8 @@ Foreach-Object {
         Copy-Item ./project.json.template "$name/project.json"
     }
 }
+Set-Location "$PSScriptRoot/.."; 
+Set-Location "./gen";
+dotnet restore;
 Set-Location $tmp;
 Write-Output "Finished"

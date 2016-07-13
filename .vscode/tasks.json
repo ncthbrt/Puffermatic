@@ -1,0 +1,22 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "0.1.0",
+    "options": {
+        "cwd": "${workspaceRoot}/src/Puffermatic/"
+    },        
+    "isShellCommand": true,
+    "command": "dotnet",    
+    "args": [],            
+    "tasks": [
+        {      
+
+            "taskName": "build",
+            "args": [],            
+            "isBuildCommand": true,            
+            "showOutput": "silent",
+            "echoCommand": true,
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}

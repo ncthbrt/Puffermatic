@@ -1,11 +1,11 @@
 grammar ProtocolBuffers3;
-    WS: [ \n\t\r]+ -> skip;
+    Ws: [ \n\t\r]+ -> skip;
 
-    COMMENT
+    Comment
         :   '/*' .*? '*/' -> skip
         ;
 
-    LINE_COMMENT
+    LineComment
         :   '//' ~[\r\n]* -> skip
         ;
 // Keywords and constants
@@ -66,8 +66,10 @@ grammar ProtocolBuffers3;
     BooleanLiteral: 'true' | 'false';
 
     // Identifiers
-    Identifier: (Letter (Letter | DecimalDigit | '_')*);
+
+    Identifier: (Letter (Letter | DecimalDigit | '_')*);    
     FullIdentifier: Identifier (Dot Identifier)*;
+    
     Dot: '.';
     Letter: [A-Za-z];
 
@@ -123,10 +125,11 @@ grammar ProtocolBuffers3;
 
     // Import Statement
     importStatement: ImportKeyword ImportModifier? StringLiteral ExpressionSeparator;
-    packageName: FullIdentifier | Identifier;
+    // packageName: FullIdentifier | Identifier;
 
     // Package
-    package: PackageKeyword packageName ExpressionSeparator;
+
+    package: PackageKeyword (FullIdentifier | Identifier) ExpressionSeparator;
 
     // Option
     optionValue:  BooleanLiteral| FullIdentifier | (Sign? IntegerLiteral) | (Sign? FloatLiteral) | StringLiteral;
@@ -191,4 +194,4 @@ grammar ProtocolBuffers3;
                       | service     # ServiceVisitor
                       ;
     
-    proto: syntax (importStatement | package | option | topLevelDefinition)* EOF;
+    proto: syntax (importStatement | package | option | topLevelDefinition)* EOF;    
